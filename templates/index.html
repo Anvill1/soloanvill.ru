@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Soloanvill.ru{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" id="mainNav">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link active py-3 px-0 px-lg-3" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1 active">
+                    <a class="nav-link py-3 px-0 px-lg-3" href="#about">About</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1 active">
+                    <a class="nav-link py-3 px-0 px-lg-3" data-bs-toggle="modal" data-bs-target="#contact">Contacts</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+# Modal window from navbar
+<div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5" id="contactlabel">Contacts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fs-5 fw-bold">Telegram - <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://t.me/RTAV3D">@RTAV3D</a> </p>
+                <p class="fs-5 fw-bold">Email - <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:rtav3d@gmail.com">rtav3d@gmail.com</a></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="skills" class="page-section skills text-dark d-flex justify-content-center">
+    <div class="wrapper">
+        <header class="masthead text-dark header">
+            <div class="container d-flex align-items-center flex-column">
+                <img class="masthead-avatar rounded-circle mx-auto d-block avatar" src="static/assets/profile.png" alt="...">
+                <h1 class="masthead-heading mb-0">Timur Ramonov</h1>
+            </div>
+        </header>
+        <div class="container flex-column aos-init aos-animate" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><img class="docker_icon" src="static/assets/docker.svg" alt="Docker icon"></div>
+                        <h3>Docker</h3>
+                        <p class="fst-normal">Понимание принципов контейнеризации. Опыт создания образов и последующая их эксплуатация.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img class="ansible_icon" src="static/assets/ansible.svg" alt="Ansible icon"></div>
+                        <h3>Ansible</h3>
+                        <p class="fst-normal">Автоматизация конфигурации виртуальных машин, а также их последующее управление. Установка и внедрение <strong>Ansible Semaphore</strong> для последующей эксплуатацией смежными отделами </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 d-flex align-items-stretch mt-4 mt-lg-0 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><img class="gitlab_icon" src="static/assets/gitlab.svg" alt="Gitlab icon"></div>
+                        <h3>Gitlab</h3>
+                        <p class="fst-normal">Настройка <strong>gitlab runner</strong>. Написание pipeline <strong>Gitlab CI</strong>. Опыт ведения проекта в команде.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><img class="zabbix_icon" src="static/assets/zabbix.png" alt="Zabbix icon"></div>
+                        <h3>Zabbix</h3>
+                        <p class="fst-normal">Опыт настройки, администрирования и поддержки системы мониторинга инфраструктуры/сервисов. Опыт настройки как <strong>White box</strong>, так и <strong>Black Box</strong> мониторинга.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img class="shell_icon" src="static/assets/shell.png" alt="Shell icon"></div>
+                        <h3>Script Languages</h3>
+                        <p class="fst-normal">Скрипты пишу на <strong> PowerShell, Bash, Python.</strong> Коротко о каждом: <strong>Powershell</strong> - написание скриптов 100+ строчек, создание конвейера скриптов, <strong>Bash</strong> - небольшие скрипты, entrypoint'ы для Docker'а, <strong>Python</strong> - написание скриптов для мониторинга, опыт работы с Flask.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img class="k8s_icon" src="static/assets/k8s.svg" alt="K8s icon"></div>
+                        <h3>K8s</h3>
+                        <p class="fst-normal">Опыта непосредственно с самим K8s в продакшене не имею. Помимо теоретических знаний, для натаскивания навыков активно использую minikube</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section bg-dark text-white d-flex about" id="about">
+    <div class="container">
+        <footer class="container">
+            <h2 class="page-section-heading text-center">About</h2>
+            <div class="container">
+                <p class="lead">Стремлюсь к развитию в направлении DevOps, так как используемый стек технологий вызывает у меня наибольший интерес. Симпатизирует работа в команде. Жизнь это скрам, а я просто пытаюсь дойти до следующего спринт ревью.</p>
+            </div>
+        </footer>
+    </div>
+</section>
+{% endblock %}
