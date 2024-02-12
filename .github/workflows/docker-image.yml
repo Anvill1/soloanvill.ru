@@ -1,0 +1,45 @@
+name: Build && push image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  ACCOUNT_NAME: rtav3d
+  IMAGE_NAME: soloanvill
+  VERSION: 0.3.1
+  HOST_PORT: 80
+  CONTAINER_PORT: 8095
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build image
+      run: docker build -t $ACCOUNT_NAME/$IMAGE_NAME:$VERSION .
+
+    - name: Run Docker container
+      run: docker run -d -p $HOST_PORT:$CONTAINER_PORT $ACCOUNT_NAME/$IMAGE_NAME:$VERSION
+
+    - name: Check status code
+      run: |
+        sleep 1s
+        status_code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1)
+        if [ $status_code != 200 ]; then
+          echo "Error! Page status code - $status_code"
+          exit 1
+        fi
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      with:
+        username: ${{ secrets.CI_DOCKERHUB_LOGIN }}
+        password: ${{ secrets.CI_DOCKERHUB_PASS }}
+
+    - name: Push Docker image
+      run: docker push $ACCOUNT_NAME/$IMAGE_NAME:$VERSION
