@@ -13,7 +13,7 @@ env:
   CONTAINER_PORT: 8095
 
 jobs:
-  build_and_push:
+  Build_and_Push:
     runs-on: ubuntu-latest
 
     steps:
@@ -56,3 +56,25 @@ jobs:
           Repository: ${{ github.repository }}
           
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+  
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository K3s
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ secrets.K3S_REPO }} # замените на ваш репозиторий №2
+        token: ${{ secrets.K3S_TOKEN }}
+
+    - name: Update image version in manifest
+      run: |
+        sed -i 's/image:.*/$ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g' soloanvill.ru/deployment-soloanvill.ru.yml
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "rtav3d@gmail.com"
+        git config --global user.name "GitHub Action"
+        git add .
+        git commit -m "${{ github.event.commits[0].message }}"
+        git push
