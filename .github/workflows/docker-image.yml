@@ -11,6 +11,7 @@ env:
   VERSION: 0.3.1
   HOST_PORT: 80
   CONTAINER_PORT: 8095
+  PROJECT_NAME: soloanvill.ru
 
 jobs:
   build_and_push:
@@ -69,7 +70,7 @@ jobs:
 
     - name: Update image version in manifest
       run: |
-        sed -i "s/image:.*/image: $ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g" soloanvill.ru/deployment-soloanvill.ru.yml
+        sed -i "s/image:.*/image: $ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g" $PROJECT_NAME/deployment.yml
 
     - name: Commit and push changes
       run: |
