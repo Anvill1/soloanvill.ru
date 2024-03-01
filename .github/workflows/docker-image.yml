@@ -64,12 +64,12 @@ jobs:
     - name: Checkout repository K3s
       uses: actions/checkout@v4
       with:
-        repository: ${{ secrets.K3S_REPO }} # замените на ваш репозиторий №2
+        repository: ${{ secrets.K3S_REPO }}
         token: ${{ secrets.K3S_TOKEN }}
 
     - name: Update image version in manifest
       run: |
-        sed -i 's/image:.*/$ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g' soloanvill.ru/deployment-soloanvill.ru.yml
+        sed -i "s/image:.*/image:$ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g" soloanvill.ru/deployment-soloanvill.ru.yml
 
     - name: Commit and push changes
       run: |
