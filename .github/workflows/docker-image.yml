@@ -69,7 +69,7 @@ jobs:
 
     - name: Update image version in manifest
       run: |
-        sed -i "s/image:.*/image:$ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g" soloanvill.ru/deployment-soloanvill.ru.yml
+        sed -i "s/image:.*/image: $ACCOUNT_NAME\/$IMAGE_NAME:$VERSION/g" soloanvill.ru/deployment-soloanvill.ru.yml
 
     - name: Commit and push changes
       run: |
