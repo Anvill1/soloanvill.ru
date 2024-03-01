@@ -1,4 +1,4 @@
-name: Build && push image
+name: CI
 
 on:
   push:
@@ -13,7 +13,7 @@ env:
   CONTAINER_PORT: 8095
 
 jobs:
-  Build_and_Push:
+  build_and_push:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
     - name: Run Docker container
       run: docker run -d -p $HOST_PORT:$CONTAINER_PORT $ACCOUNT_NAME/$IMAGE_NAME:$VERSION
 
-    - name: Check status code
+    - name: Check app status code
       run: |
         sleep 1s
         status_code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1)
@@ -57,7 +57,7 @@ jobs:
           
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
-  Deploy:
+  update_k3s_repo:
     runs-on: ubuntu-latest
 
     steps:
