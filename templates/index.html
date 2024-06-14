@@ -17,12 +17,42 @@
                 <li class="nav-item mx-0 mx-lg-1 active">
                     <a class="nav-link py-3 px-0 px-lg-3" data-bs-toggle="modal" data-bs-target="#contact">Contacts</a>
                 </li>
+                <li class="nav-item mx-0 mx-lg-1 active">
+                    <a class="nav-link py-3 px-0 px-lg-3" data-bs-toggle="modal" data-bs-target="#redeploy">Redeploy</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
-# Modal window from navbar
+<div class="modal fade" id="redeploy" tabindex="-1" aria-labelledby="redeploylabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="redeployLabel">Let's redeploy landing with your name!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="username" class="col-form-label">First and last name:</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Redeploy</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactlabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -55,21 +85,21 @@
                     <div class="icon-box">
                         <div class="icon"><img class="docker_icon" src="static/assets/docker.svg" alt="Docker icon"></div>
                         <h3>Docker</h3>
-                        <p class="fst-normal">Понимание принципов контейнеризации. Опыт создания образов и последующая их эксплуатация.</p>
+                        <p class="fst-normal">Понимание принципов контейнеризации(Namespaces, Capabilities, CGroups). Схема успеха: Собираем Dockerfile'ом, тестим compose'ом, деплоим в кубер.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">
                     <div class="icon-box">
                         <div class="icon"><img class="ansible_icon" src="static/assets/ansible.svg" alt="Ansible icon"></div>
                         <h3>Ansible</h3>
-                        <p class="fst-normal">Автоматизация конфигурации виртуальных машин, а также их последующее управление. Установка и внедрение <strong>Ansible Semaphore</strong> для последующей эксплуатацией смежными отделами </p>
+                        <p class="fst-normal">Опыт написаное ролей, а также использование Ansible как звена в Gitlab CI.<strong>Ansible Semaphore/AWX</strong></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="300">
                     <div class="icon-box">
                         <div class="icon"><img class="gitlab_icon" src="static/assets/gitlab.svg" alt="Gitlab icon"></div>
                         <h3>Gitlab</h3>
-                        <p class="fst-normal">Настройка <strong>gitlab runner</strong>. Написание pipeline <strong>Gitlab CI</strong>. Опыт ведения проекта в команде.</p>
+                        <p class="fst-normal">Опыт написание pipeline как <strong>Gitlab CI</strong>, так и <strong>Github Actions</strong> в связке с <strong>Jenkins</strong>. </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="100">
@@ -83,7 +113,7 @@
                     <div class="icon-box">
                         <div class="icon"><img class="shell_icon" src="static/assets/shell.png" alt="Shell icon"></div>
                         <h3>Script Languages</h3>
-                        <p class="fst-normal">Скрипты пишу на <strong> PowerShell, Bash, Python.</strong> Коротко о каждом: <strong>Powershell</strong> - написание скриптов 100+ строчек, создание конвейера скриптов, <strong>Bash</strong> - небольшие скрипты, entrypoint'ы для Docker'а, <strong>Python</strong> - написание скриптов для мониторинга, опыт работы с Flask.</p>
+                        <p class="fst-normal">Опыт написания скриптом и микросервисов на <strong>Golang, Python, Bash, Powershell</strong>.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">
