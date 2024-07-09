@@ -7,7 +7,7 @@ app.secret_key = 'Ol91xL&fP],dfsg1)L1X#K%dsgdfgdf'
 
 logging.basicConfig(level=logging.INFO)
 
-backend_url = 'http://127.0.0.1:8080/api/deploys/create'
+backend_url = 'http://soloanvill-backend/api/deployment/create'
 
 metrics = PrometheusMetrics(app)
 metrics.info('app_info', 'Application info', version='1.0.3')
