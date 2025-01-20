@@ -1,10 +1,8 @@
 FROM alpine:3.16
 
-LABEL Maintainer="Timur Ramonov"
+LABEL stage="gobuilder" org.opencontainers.image.authors=rtav3d@gmail.com
 
-COPY . /app
-
-CMD ls
+COPY /flaskr /app
 
 RUN apk add --update --no-cache python3 py3-pip \
     && ln -sf python3 /usr/bin/python \

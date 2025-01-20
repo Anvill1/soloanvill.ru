@@ -1,5 +1,6 @@
 import requests, logging
 from flask import Flask, render_template, request, redirect
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
@@ -28,12 +29,11 @@ def index():
             response.raise_for_status()
             app.logger.info(f"Redeploy request by {username} created successfully")
         except requests.exceptions.HTTPError as http_err:
-            app.logger.error(f"HTTP ошибка: {http_err}")
+            app.logger.error(f"HTTP error: {http_err}")
         except Exception as err:
-            app.logger.error(f"Другая ошибка: {err}")
+            app.logger.error(f"Other error: {err}")
         return redirect('/')
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 @app.route('/metrics')
 def metrics():
