@@ -35,17 +35,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="username" class="col-form-label">First and last name:</label>
-                            <input type="text" class="form-control" id="username" name="username">
+                            {{ form.hidden_tag() }}
+                            <label for="username" class="col-form-label">First name and Last name:</label>
+                            {{ form.username(class="form-control") }}
                         </div>
                         <div class="mb-3">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email">
+                            {{ form.email(class="form-control") }}
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Redeploy</button>
+                        {{ form.submit(class="btn btn-primary") }}
                     </div>
                 </div>
             </form>

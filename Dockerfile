@@ -4,6 +4,8 @@ LABEL stage="gobuilder" org.opencontainers.image.authors=rtav3d@gmail.com
 
 COPY /flaskr /app
 
+WORKDIR /app
+
 RUN apk add --update --no-cache python3 py3-pip \
     && ln -sf python3 /usr/bin/python \
     && pip install -r /app/requirements.txt \
@@ -11,8 +13,6 @@ RUN apk add --update --no-cache python3 py3-pip \
     && chown -R docker:docker /app
 
 USER docker
-
-WORKDIR /app
 
 EXPOSE 8095
 

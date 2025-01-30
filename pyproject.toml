@@ -9,8 +9,12 @@ readme = "README.md"
 dependencies = [
   "Flask==2.3.3",
   "gunicorn == 20.1.0",
-  "prometheus-flask-exporter==0.23.0",
+  "prometheus-flask-exporter == 0.23.0",
   "requests == 2.31.0",
+  "flask_wtf == 1.2.2",
+  "wtforms = 3.2.1",
+  "email_validator = 2.2.0",
+  "flash == 1.0.3"
 ]
 requires-python = ">=3.8"
 authors = [{name = "Timur Ramonov", email="rtav3d@gmail.com"}]
