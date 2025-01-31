@@ -4,17 +4,26 @@ from wtforms import StringField, SubmitField, EmailField, validators
 from wtforms.validators import DataRequired, Regexp, Length, ValidationError
 
 
-def No_cyrillic(form, field): # Не работает
+'''
+def no_cyrillic(self, username): # Не работает
     # Регулярное выражение для проверки наличия кириллических символов
-    if re.search('[а-яА-Я]', field.data):
-        raise ValidationError('Use only latins symbols')
+    if re.search('[а-яА-Я]', username):
+        raise ValidationError('Use only latins symbols'
+'''
 
 class RedeployForm(FlaskForm):
-    username = StringField('First and last name', validators=[
+    username = StringField('First name and Last name:', validators=[
         DataRequired(),
         Length(min=5, max=50, message="Enter correct first and last name"),
-        No_cyrillic # Не работает
+        #no_cyrillic()
     ])
 
-    email = EmailField('Email', [validators.DataRequired(), validators.Email()])
+    email = EmailField('Email:', [
+        validators.DataRequired(),
+        validators.Email()
+    ])
+    def no_cyrillic(self, username):  # Не работает
+        # Регулярное выражение для проверки наличия кириллических символов
+        if re.search('[а-яА-Я]', username):
+            raise ValidationError('Use only latins symbols')
     submit = SubmitField('Redeploy')
