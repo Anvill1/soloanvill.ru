@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>File Not Found</h1>
-    <p><a href="{{ url_for('index') }}">Back</a></p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center page-section text-dark mt-4">
+            <h1 class="display-1 text-danger">404</h1>
+            <h2 class="display-4">Страница не найдена</h2>
+            <p class="lead fst-normal">К сожалению, что-то пошло не так. Неправильно набран адрес, или такой страницы на сайте больше не существует.</p>
+            <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Вернуться на главную страницу</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
