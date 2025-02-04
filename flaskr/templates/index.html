@@ -2,53 +2,6 @@
 {% block title %}Soloanvill.ru{% endblock %}
 {% block content %}
 <main>
-    <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactlabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title fs-5" id="contactlabel">Contacts</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="fs-5 fw-bold">Telegram - <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://t.me/RTAV3D">@RTAV3D</a> </p>
-                    <p class="fs-5 fw-bold">Email - <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:rtav3d@gmail.com">rtav3d@gmail.com</a></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="redeploy" tabindex="-1" aria-labelledby="redeploylabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form method="post">
-                    <div class="modal-header">
-                        {{ form.csrf_token() }}
-                        <h1 class="modal-title fs-5" id="redeployLabel">Let's redeploy landing with your name!</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                {{ form.hidden_tag() }}
-                                {{ form.username.label }}
-                                {{ form.username(class="form-control") }}
-                            </div>
-                            <div class="mb-3">
-                                {{ form.email.label }}
-                                {{ form.email(class="form-control") }}
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            {{ form.submit(class="btn btn-primary") }}
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <section id="skills" class="page-section skills text-dark d-flex justify-content-center">
         <div class="wrapper">
             <header class="masthead text-dark header">
@@ -63,7 +16,7 @@
                         <div class="icon-box">
                             <div class="icon"><img class="docker_icon" src="static/assets/docker.svg" alt="Docker icon"></div>
                             <h3>Docker</h3>
-                            <p class="fst-normal">Понимание принципов контейнеризации(Namespaces, Capabilities, CGroups). Контейниризация приложения с помощью Dockerfile, написание compose для автотестов, подготовка манифестов для разворачивания в K8s.</p>
+                            <p class="fst-normal">Понимание принципов контейнеризации(Namespaces, Capabilities, CGroups). Контейнеризация приложения с помощью Dockerfile, написание compose для автотестов, подготовка манифестов для разворачивания в K8s.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 aos-init aos-animate" data-bs-aos="zoom-in" data-bs-aos-delay="200">

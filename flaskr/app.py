@@ -13,6 +13,10 @@ backend_url = 'http://soloanvill-backend/api/deployment/create'
 metrics = PrometheusMetrics(app)
 metrics.info('app_info', 'Application info', version='1.0.3')
 
+@app.context_processor
+def inject_form():
+    return {'form': RedeployForm()}
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = RedeployForm()
