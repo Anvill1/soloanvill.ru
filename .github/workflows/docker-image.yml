@@ -8,14 +8,14 @@ on:
 env:
   ACCOUNT_NAME: rtav3d
   IMAGE_NAME: soloanvill
-  VERSION: 0.4.2
+  VERSION: 0.5.0
   HOST_PORT: 80
   CONTAINER_PORT: 8095
   PROJECT_NAME: soloanvill.ru
 
 jobs:
-  build_and_push:
-    runs-on: ubuntu-latest
+  build_and_test:
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Checkout repository
@@ -59,7 +59,8 @@ jobs:
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
   update_k3s_repo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    needs: build_and_test
 
     steps:
     - name: Checkout repository K3s

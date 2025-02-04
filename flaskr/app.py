@@ -8,10 +8,14 @@ app.secret_key = 'Ol91xL&fP],dfsg1)L1X#K%dsgdfgdf'
 
 logging.basicConfig(level=logging.INFO)
 
-backend_url = 'http://soloanvill-backend/api/deployment/create'
+backend_scheme = 'http'
+backend_name = 'soloanvill-backend'
+endpoint = 'api/deployment/create'
+
+backend_url = f'{backend_scheme}://{backend_name}/{endpoint}'
 
 metrics = PrometheusMetrics(app)
-metrics.info('app_info', 'Application info', version='1.0.3')
+metrics.info('app_info', 'Application info', version='0.5.0')
 
 @app.context_processor
 def inject_form():
