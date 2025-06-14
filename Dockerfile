@@ -4,8 +4,6 @@ LABEL Maintainer="Timur Ramonov"
 
 COPY . /app
 
-CMD ls
-
 RUN apk add --update --no-cache python3 py3-pip \
     && ln -sf python3 /usr/bin/python \
     && pip install -r /app/requirements.txt \
