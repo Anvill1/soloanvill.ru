@@ -60,6 +60,7 @@ jobs:
   
   update_k3s_repo:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout repository K3s
