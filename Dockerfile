@@ -1,18 +1,26 @@
-FROM alpine:3.16
+FROM python:3.12-slim as builder
+
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock ./
+
+RUN pip install poetry \
+    poetry install
+
+FROM python:3.12-slim
 
 LABEL Maintainer="Timur Ramonov"
 
-COPY . /app
+WORKDIR /app
 
-RUN apk add --update --no-cache python3 py3-pip \
-    && ln -sf python3 /usr/bin/python \
-    && pip install -r /app/requirements.txt \
-    && addgroup -S docker && adduser docker -S docker -G docker \
+COPY --from=builder /app/.venv .
+
+COPY . .
+
+RUN addgroup -S docker && adduser docker -S docker -G docker \
     && chown -R docker:docker /app
 
 USER docker
-
-WORKDIR /app
 
 EXPOSE 8095
 
