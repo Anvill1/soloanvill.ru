@@ -8,7 +8,7 @@ RUN python3 -m pip install poetry && \
     poetry config virtualenvs.path ./.venv && \
     poetry install
 
-FROM python:3.12-slim
+FROM python:3.12-alpine
 
 LABEL org.opencontainers.image.authors="rtav3d@gmail.com"
 
