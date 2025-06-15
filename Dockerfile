@@ -5,11 +5,12 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock LICENSE ./
 
 RUN python3 -m pip install poetry && \
+    poetry config virtualenvs.path ./.venv && \
     poetry install
 
 FROM python:3.12-slim
 
-LABEL Maintainer="Timur Ramonov"
+LABEL org.opencontainers.image.authors="rtav3d@gmail.com"
 
 WORKDIR /app
 
