@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 
-RUN python3 -m pip install poetry \
+RUN python3 -m pip install poetry && \
     poetry install
 
 FROM python:3.12-slim
@@ -17,8 +17,8 @@ COPY --from=builder /app/.venv .
 
 COPY . .
 
-RUN addgroup -S docker && adduser docker -S docker -G docker \
-    && chown -R docker:docker /app
+RUN addgroup -S docker && adduser docker -S docker -G docker && \
+    chown -R docker:docker /app
 
 USER docker
 
