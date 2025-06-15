@@ -2,7 +2,7 @@ FROM python:3.12-slim AS builder
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock LICENSE ./
 
 RUN python3 -m pip install poetry && \
     poetry install
