@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 
-RUN pip install poetry \
+RUN python3 -m pip install poetry \
     poetry install
 
 FROM python:3.12-slim
