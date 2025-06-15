@@ -18,6 +18,8 @@ COPY --from=builder /app/.venv .
 
 COPY . .
 
+ENV PYTHONPATH=/app/.venv
+
 RUN addgroup -S docker && adduser docker -S docker -G docker && \
     chown -R docker:docker /app
 
