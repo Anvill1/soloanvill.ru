@@ -17,7 +17,7 @@ def index():
     if request.method == "POST":
         username = request.form['username'].rstrip()
         email = request.form['email']
-        ip = request.remote_addr
+        ip = request.headers.get('X-Forwarded-For', request.remote_addr)
         data = {
             'username': username,
             'email': email,
